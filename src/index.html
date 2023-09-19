@@ -1,17 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
-</head>
-
+<html>
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
 
+<h1>An Empirical Study of
+Password Policy Compliance </h1>
+
+<h1><h1>By Jyothsna Dasi</h1></h1>
+
+<article>
+  <h2>Abstract</h2>
+  <p>—Cybersecurity exploits that take advantage of
+weak passwords continue to succeed in virtually every
+industry. This motivates interest in empirically determining
+the extent to which websites that invite visitors to create new
+user accounts on them encourage or require users to engage in
+better password management practices, including strong
+passwords. This project examined a statistically significant
+sample of websites to assess how closely they voluntarily adhere
+to the National Institute of Standards and Technology’s
+authoritative guidance on password policies. Over 100
+representative websites were selected from industries that
+consistently report the most breaches in the Verizon Data
+Breach Investigation Report. Their respective user account
+creation processes were assessed via a scorecard approach
+based on observations collected when following standardized
+experimental procedures. Scorecard data then were
+aggregated and analyzed for trends. The research findings
+highlight potential vulnerabilities that persist in online account
+password creation practices, leaving many websites susceptible
+to brute force attacks due to cyber hygiene lapses.
+Recommendations to help remediate compliance gaps and as
+paths forward to build upon this work include refining the
+proposed scorecard, creating and using standardized user
+registration and profile manager plugins, widely adopting
+user-friendly password management tools, and enacting
+tougher legal consequences for website hosts when breaches
+occur.</p>
+</article>
+
+<article>
+  <h2>Introduction</h2>
+  <p>As technology and computing power increase, so does the
+ability of threat actors to compromise passwords. At the same
+time, whether driven by convenience or necessity, people are
+doing more professional and personal activities online than
+ever before [1]; and in doing so they share relevant personal
+information that businesses as well as bad actors can leverage
+for their own purposes. While news of data breaches should
+make everyone increasingly wary of how well data they share
+online is being safeguarded by the companies that house
+them, users continue to create weak passwords. According to
+an online study published by YouGov, over half of all online
+users are using the same passwords for most of their accounts
+[4].
+In short, left to their own choices, users’ passwords are
+not secure despite well-publicized breach incidents and
+clearly defined best practices from reputable bodies like the
+National Institute of Standards and Technology (NIST).
+When websites invite visitors to create online accounts, but
+then do not enforce compliance with authoritative password
+guidance, this effectively results in a virtually endless
+vulnerable attack surface for cyber criminals who seek to
+breach, then exfiltrate and exploit personal and financial
+information.
+The goal of this project was to empirically investigate the
+extent to which website hosts try to foster strong passwords
+during online account creation. This research is important
+because it highlights potential vulnerabilities that persist in
+online account creation. In addition, it proposes a scorecard
+approach for rating how closely sites follow authoritative
+guidance regarding strong passwords. Together this builds a
+foundation for suggesting specific ways both end users and
+online hosts still may need to close the gap between being
+aware of simple cybersecurity hygiene and actually putting it
+into practice.
+The remainder of this paper is organized as follows.
+Section II presents background information regarding the
+prevalence of weak password use and authoritative password
+guidance. Section III explains methodologies used for the
+experiment. Section IV discusses findings from data analysis.
+Section V suggests some recommendations for remedying
+password compliance gaps. Section VI summarizes the paper
+and suggests ways to build upon this work.
+</p>
+  
+</article>
+
+<article>
+  <h2>Background</h2>
+  <p>A. Problem Scope
+Several studies have shown how a random sample of
+dictionary attacks alone was able to break up to 24 percent of
+tested passwords [4][5][6]. There are between 12 and 24
+million ecommerce sites across all business segments [2].
+Extrapolating such historical findings across every
+ecommerce account ever created implies virtually every
+internet user is highly likely to have data at risk via credential
+breaches.
+A survey of over 1000 individuals conducted by the
+security giant Avast concluded that 83 percent of all users are
+using weak passwords [7]. Troy Hunt, a world-renowned
+2023 Journal of The Colloquium for Information Systems Security Education, Volume 10, No. 1, Winter 2023
+979-8-3858-4381-7/23/$26.00 ©2023 CISSE 2 www.cisse.info
+expert on security and data breaches, hosts a website where
+he has collected over half a billion passwords that have
+appeared in known data breaches. Among his most alarming
+discoveries: in just one breach involving 6.8 million records,
+71 percent of those passwords were already in the database
+of compromised passwords he had compiled [8].
+According to a recent Verizon Data Breach Investigation
+Reports (DBIR), every industry category they track has
+experienced an incident in which password cracking via brute
+force attack enabled the breach. In fact, the DBIR has cited
+stolen or compromised credentials as the top cause of all data
+breaches for many years [3]. In other words, users continue
+to create weak, easily cracked passwords.
+B. Authoritative Password Guidance
+In 2019, the National Institute of Standards and
+Technology released Special Publication (SP) 800-63-3
+which outlines new recommendations for authenticating
+users to combat this significant vulnerability in the account
+creation process. The SP builds on findings over several
+years to overturn previously accepted best practices,
+replacing them with a new gold standard. As shown in Table
+I, it lays out nine main points that should be considered when
+creating password policies with an eye toward security and
+robust authentication [11].
+TABLE I. NIST PASSWORD GUIDANCE
+Attribute Criteria
+Length
+Minimum of 8 when selected by a human; 6
+when assigned by a system or service;
+maximum of 64 should be allowed.
+Character types All ASCII characters, including spaces,
+should be allowed.
+Truncation Shortening of passwords should never be
+implemented.
+Screening
+Checking proposed passwords against
+dictionaries of commonly used, easy-toguess passwords is recommended.
+Complexity Requiring complexity criteria must be met is
+not recommended.
+Lockout Locking the account after a set number (e.g.,
+10) of failed login attempts is recommended.
+Expiration Requiring users to change their passwords
+with high frequency is not recommended.
+Knowledge-based
+authentication
+Hints and security questions to retrieve or
+reset forgotten passwords are not
+recommended.
+Two-factor
+authentication (2FA)
+Short Message Service (SMS)-based
+approaches are not recommended; one-time
+rotating password applications are
+acceptable.
+C. Motivation for Study
+Despite an abundance of authoritative password
+guidance, users continue to compose weak passwords and to
+reuse passwords across multiple online accounts, offering a
+ubiquitous attack surface for cyber criminals. This
+observation motivated interest in empirically determining the
+extent to which websites that invite users to create accounts
+encourage or require them to create strong passwords or to
+engage in better password management practices in
+alignment with NIST guidance.</p>
+  
+</article>
+
+<article>
+  <h2>METHODOLOGY</h2>
+  <p>This project inspected the account creation process for a
+statistically significant number of websites that invite visitors
+to create password-protected accounts. The overall
+experiment included the following five procedural elements.
+A. Sample Population Selection
+The DBIR rank-orders 21 industries according to the
+number of reported data breaches, malware attacks, and other
+cybersecurity incidents [3]. From that list, nine (9) of the
+most frequently breached industries were selected:
+Accommodation, Education, Finance, Healthcare,
+Information, Manufacturing, Professional, Public, Retail.
+Then, based on industry definitions, keywords were chosen
+and used in the Google and Bing search engines to discover
+industry-relevant websites that feature an account creation
+process. It should be noted for the Manufacturing industry,
+the existence of a process for creating an account to apply for
+a job was deemed acceptable, based on the assumption that
+the password policies used by human resources (HR) would
+be consistent with the password policies of the company at
+large.
+By choosing 10 to 15 websites in each of these nine
+categories, data ultimately were collected from 108 sites.
+Since the number of websites on the internet is extremely
+large, this sample size supported statistical calculations
+accurate to within 10 to 12 percent of the overall population
+statistics with high confidence.
+B. Volunteer Recruitment
+Due to time constraints, four student volunteers were
+recruited from the Computer Science Department at Norfolk
+State University to help with data collection..
+C. Script and Video Creation
+A script was created to standardize the collection of
+experimental observations in comparison with NIST
+guidance. To the maximum extent practicable, the script
+focused on data collectors responding to a series of yes/no
+questions while they created a user account on each selected
+website, with just a few “fill-in-the-blank” answers. The
+resulting script is shown in Fig.1. In addition, two
+instructional videos were created to explain the data
+collection process and the use of the script to student
+volunteers.
+2023 Journal of The Colloquium for Information Systems Security Education, Volume 10, No. 1, Winter 2023
+979-8-3858-4381-7/23/$26.00 ©2023 CISSE 3 www.cisse.info
+Fig. 1. Data Collection Script
+D. Data Collection and Validation
+Each volunteer was provided a unique subset of websites
+drawn from the sample, and instructed to watch the two
+instructional videos before collecting data. Data collection
+involved visiting each site to create an account while
+following and answering the script questions. Sample data
+sheets were spot checked later to ensure collection
+procedures had been followed. Minor inaccuracies were
+found on just two sheets, informally validating the
+repeatability of the data collection process and the accuracy
+of the volunteers’ efforts.
+E. Calculations and Inferences
+Collected data were consolidated and summarized to
+support analysis, comparing results across industries, and to
+highlight significant trends. These findings and insights are
+discussed in the next section.</p>
+  
+</article>
+
+<article>
+  <h2>Conclusions</h2>
+  <p>This research sought to provides insights about the state of password policy creation and enforcement with respect to prevailing “best practices” from an authoritative source (i.e., NIST) across many industries’ websites internet-wide.  This  section summarizes conclusions and suggests some ways to build upon findings.A.ConclusionsThis project used the Verizon DBIR as a starting point to identify  industries  with  the  largest  number  of  cybersecurity  incidents.  Data  were  collected  from  108  randomly  selected  websites  within  nine  industries  known  to  exhibit  a  high  frequency   of   cybersecurity   incidents.   A   few   volunteer   graduate  students  “crowd  sourced”  data  collection  efforts, guided  by  instructional  videos  and  a  step-wise  script.  Eight  variables were created to represent specific aspects of NIST SP 800-63-3 guidance on credentials (passwords), along with a scorecard for assessing each site’s compliance with them. Scores  were aggregated  to  glean  statistical  insights  about  websites internet-wide. Some potential trends were remarked within  industry  verticals;  however  these  sample  sizes  were  too small to have statistical significance.Generalizing from the analysis, many websites that allow
+users to create accounts on them still do not enforce a
+minimum password length; nor do they forbid common,
+easily hacked passwords; nor do they have any account
+lockout policy. That is, these sites remain susceptible to brute
+force attacks. Industries with the lowest levels of compliance
+to NIST password policies were Healthcare, Retail, and
+Manufacturing. It was noted, however, that all industries
+scored in the 70 to 80 percent range overall, meaning “on
+average” they are complying with most NIST password
+policy guidance.
+B. Future Directions
+To build upon this work, more extensive data collection
+would be needed. In particular, to draw conclusions within
+specific industry categories requires a sample size of 100 or
+more per vertical. The experiment also should be repeated
+with multiple randomly selected website data sets to confirm
+repeatability. Because this study focused on choosing
+websites from industries with a high historical incidence of
+breaches, a complementary investigation might instead
+choose low-reporting industries to determine whether results
+correlate to higher compliance with NIST guidance.
+Observing additional credential attributes based on NIST
+standards and factoring them into the scorecard and analysis
+could reveal more insights too. For example, a variable
+“Allow Paste” could inspect whether users are able to
+copy/paste a value into the password bar, since some
+password managers rely on this behavior for logging into
+accounts on behalf of the user. NIST guidance also states that
+a password must be between 8 and 64 characters long [11].
+This project only scrutinized the minimum length
+requirement, since shorter passwords are easier to crack. So
+adding a “Char Max” variable to the scorecard to check for
+maximum length compliance could yield interesting new</p>
+</article>
+
+<article>
+  <h2>References</h2>
+  <p>2023 [1]Salesforce, “Trends in Customer Trust,” 2018, https://www.salesforce.com/content/dam/web/en_us/www/documents/briefs/customer-trust-trends-salesforce-research.pdf[2]Branka Vuleta, “Ecommerce Statistics,” 2021, https://99firms.com/blog/ecommerce-statistics/[3]Verizon Enterprise Solutions, “Data Breach Investigation Report,” 2020, https://enterprise.verizon.com/resources/reports/2019-data-breach-investigations-report.pdf[4]Matteo Dell'Amico, P. Michiardi and Y. Roudier, “Password Strength: An Empirical Analysis,” 2010 IEEE International Conference on Computer Communications, 15-19 March, 2010, San Diego, California, doi: 10.1109/INFCOM.2010.5461951[5]R. Staff, “Hackers attack 20 million accounts on Alibaba's Taobao shopping site,” 2020, https://www.reuters.com/article/us-alibaba-cyber-idUSKCN0VD14X/ [6]PCRisk, “2,000 Magento Stores Hacked in one Weekend,” 2020, https://www.pcrisk.com/internet-threat-news/18842-2000-magento-stores-hacked-in-one-weekend/ [7]Avast, “83% of Americans are Using Weak Passwords,” 2019, https://press.avast.com/83-of-americans-are-using-weak-passwords/[8]Troy Hunt, “86% of Passwords are Terrible (and Other Statistics),” 2020, https://www.troyhunt.com/86-of-passwords-are-terrible-and-other-statistics/[9]Sonia Chiasson, Paul C. van Oorschot, and Robert Biddle. “A Usability Study and Critique of Two Password Managers,” 15th USENIX Security Symposium, July 2016, https://www.usenix.org/conference/15th-usenix-security-symposium/usability-study-and-critique-two-password-managers/[10]Jeff Mlakar, “Why You Should Use a Password Manager - The Pros and Cons of Password Management Systems,” 2019, https://www.mlakartechtalk.com/why-you-should-use-password-manager-pros-cons-password-management-systems/[11]National Institute of Standards and Technology, Special Publication 800- 63-3: Digital Identity Guidelines, March 2020, https://doi.org/10.6028/NIST.SP.800-63-3[12]Steven Furnell, “Assessing website password practices –   over a decade of progress?,” Computer Fraud & Security, Volume 2018, Issue 7, 2018, Pages 6-13, https://doi.org/10.1016/S1361-3723(18)30063-0[13]CozmosLabs, “User Registration & User Profile – Profile Builder,” 2021, https://wordpress.org/plugins/profile-builder</p>
+</article>
+<h2>Addendum:</h2>
+
+<p><strong>DOCTYPE</strong> - Informs the browser that this is an HTML5 document.</p>
+<p><strong>html</strong> - The primary container element for all HTML code.</p>
+<p><strong>body</strong> - Contains all visible content displayed to the user.</p>
+<p><strong>h1</strong> - Defines a top-level heading.</p>
+<p><strong>article</strong> - Specifies a section of independent, self-contained content.</p>
+<p><strong>h2</strong> - Defines a second-level heading within an article.</p>
+<p><strong>p</strong> - Creates a paragraph of text.</p>
+<strong>b</strong> - The <strong>b</strong> element is used to apply bold formatting to text.
+</body>
 </html>
